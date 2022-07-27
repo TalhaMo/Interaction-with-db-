@@ -66,4 +66,16 @@ public class UserModel {
 	      ps.setInt(3, userId);
 	      return ps.execute();
 	}
+	public void deleteUser(int userId) {
+		
+		 String query= "delete users from users where users_id=?";
+		 try {
+			PreparedStatement ps= con.prepareStatement(query);
+			ps.setInt(1, userId);
+			ps.execute();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
 }
